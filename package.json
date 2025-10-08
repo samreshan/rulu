@@ -1,0 +1,32 @@
+{
+  "name": "samreshan-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@mdx-js/react": "^3.0.0",
+    "classnames": "^2.5.1",
+    "framer-motion": "^10.18.0",
+    "gray-matter": "^4.0.3",
+    "next": "14.2.5",
+    "next-mdx-remote": "^5.0.0",
+    "plausible-tracker": "^0.3.9",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@heroicons/react": "^2.1.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.61",
+    "@types/react-dom": "^18.2.19",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.4.5"
+  }
+}
