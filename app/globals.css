@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-ivory text-night font-sans antialiased;
+}
+
+a {
+  @apply text-night underline-offset-4 decoration-1 decoration-accent transition-colors duration-200 ease-soft;
+}
+
+a:hover {
+  @apply text-accent;
+}
+
+::selection {
+  background-color: rgba(255, 77, 77, 0.2);
+}
+
+.prose p {
+  @apply text-lg leading-relaxed text-night/80;
+}
+
+.prose h2 {
+  @apply text-3xl font-semibold text-night mt-12 mb-6;
+}
+
+.prose h3 {
+  @apply text-2xl font-semibold text-night mt-8 mb-4;
+}
+
+.prose ul {
+  @apply list-disc pl-6;
+}
+
+.prose ol {
+  @apply list-decimal pl-6;
+}
+
+.prose a {
+  @apply text-accent no-underline;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-night/10 pl-6 italic text-night/70;
+}
+
+.prose img {
+  @apply rounded-lg shadow-lg my-8;
+}
