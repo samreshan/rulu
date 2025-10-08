@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.5",
     "@mdx-js/react": "^3.0.0",
     "classnames": "^2.5.1",
     "framer-motion": "^10.18.0",
@@ -17,10 +18,10 @@
     "next-mdx-remote": "^5.0.0",
     "plausible-tracker": "^0.3.9",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "@heroicons/react": "^2.1.5"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.13.5",
     "@types/node": "^20.11.30",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
