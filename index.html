@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samreshan Sahani - Building Nepal's Next d.school</title>
+    <meta name="description" content="Samreshan Sahani's Portfolio - Designer, Brand Strategist, and Educator building Nepal's next d.school. Explore my manifesto, blueprint, and portfolio.">
+    <meta name="keywords" content="Samreshan Sahani, Design, Branding, Education, Nepal, d.school, Portfolio, Web Design, Strategy">
     <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js" defer></script>
 </head>
 <body>
     <!-- Grid Overlay -->
@@ -14,14 +17,14 @@
     <div class="cursor-dot"></div>
 
     <!-- Theme Toggle -->
-    <div class="theme-toggle" onclick="toggleTheme()"></div>
+    <div class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Dark/Light Mode" role="button" tabindex="0"></div>
 
     <!-- Navigation -->
     <nav>
         <ul>
             <li><a href="#hero">Manifesto</a></li>
-            <li><a href="#blueprint">Blueprint</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#case-studies">Case Studies</a></li>
+            <!-- <li><a href="#portfolio">Portfolio</a></li> -->
             <li><a href="#colophon">Colophon</a></li>
         </ul>
     </nav>
@@ -34,43 +37,60 @@
                     I'm</span> <span class="accent-text">Samreshan Sahani</span>.
                 </h1>
                 <p class="hero-subtitle">
-                    I design brands, shape minds, and build futures.<br>
-                    One of those futures is the <span class="accent-text">next d.school in Nepal</span>.
+                    Brand Designer & Creative Director with a
+                    <span class="accent-text">love for film making</span>.
                 </p>
             </div>
         </div>
     </section>
 
     <!-- Blueprint Section -->
-    <section id="blueprint">
+    <!-- Case Studies Section (Carousel) -->
+    <section id="case-studies">
         <div class="container">
-            <h2 style="font-size: 3rem; font-weight: 900; text-align: center; margin-bottom: 20px;">The Blueprint</h2>
-            <p style="text-align: center; opacity: 0.8; font-size: 1.2rem;">Three pillars. One vision. Infinite possibilities.</p>
+            <h2 style="font-size: 3rem; font-weight: 900; text-align: center; margin-bottom: 20px;">Case Studies</h2>
+            <p style="text-align: center; opacity: 0.8; font-size: 1.2rem; margin-bottom: 40px;">Selected works that define my journey.</p>
             
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">📐</div>
-                    <h3 class="skill-title">The Strategist & Architect</h3>
-                    <p class="skill-description">Building brands from the ground up. Strategy isn't just thinking—it's designing systems that scale, adapt, and inspire.</p>
-                </div>    
-                
-                <div class="skill-card">
-                    <div class="skill-icon">✏️</div>
-                    <h3 class="skill-title">The Craftsman</h3>
-                    <p class="skill-description">Pixels are my medium. Every interface tells a story, every interaction creates meaning. Design is how it works, not just how it looks.</p>
+            <div class="case-study-grid">
+                <!-- Active Card: Flogo -->
+                <div class="case-study-card active-card" data-url="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdeck%2FuRROvAoukjLgegkQ6VcJHm%2FSamrePort%3Fnode-id%3D0-1%26t%3DGVNq6FBYufoLl91B-1">
+                    <div class="card-image">
+                        <!-- Using a placeholder for now, replace with Flogo specific visual -->
+                        <img src="https://placehold.co/600x400/FFD600/151515?text=FLOGO+Presentation" alt="Flogo Case Study">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Flogo</h3>
+                        <p>A cinematic journey into brand identity.</p>
+                        <span class="view-project">Watch Presentation &rarr;</span>
+                    </div>
                 </div>
 
-                <div class="skill-card">
-                    <div class="skill-icon">⚙️</div>
-                    <h3 class="skill-title">The Foundation</h3>
-                    <p class="skill-description">Code is poetry in motion. From servers to services, I build digital infrastructures that don't just work—they inspire.</p>
+                <!-- Inactive Card: Coming Soon -->
+                <div class="case-study-card coming-soon">
+                    <div class="card-image">
+                        <img src="https://placehold.co/600x400/E0E0E0/999?text=Next+Project" alt="Coming Soon">
+                    </div>
+                    <div class="card-content">
+                        <h3>More Brewing</h3>
+                        <p>Great things take time.</p>
+                        <span class="view-project">Coming Soon...</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- PDF Modal -->
+    <div id="pdf-modal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Close Modal">&times;</button>
+            <iframe id="pdf-frame" src="" title="Case Study PDF"></iframe>
+        </div>
+    </div>
+
     <!-- Portfolio Section -->
-    <section id="portfolio">
+    <!-- <section id="portfolio">
         <div class="container">
             <h2 style="font-size: 3rem; font-weight: 900; text-align: center; margin-bottom: 20px;">The Proof of Concept</h2>
             <p style="text-align: center; opacity: 0.8; font-size: 1.2rem;">Every project is a step toward the future we're building.</p>
@@ -107,24 +127,24 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Colophon Section -->
     <section id="colophon">
         <div class="colophon-content">
             <h2 class="colophon-title">
-                The future of design<br>
-                <span class="accent-text">is waiting.</span>
+                Your story<br>
+                <span class="accent-text">deserves to be told.</span>
             </h2>
             <p style="font-size: 1.3rem; opacity: 0.9; line-height: 1.8;">
-                This isn't just a portfolio. It's a promise.<br>
-                A promise to build, to teach, to inspire.<br>
-                To create a d.school that doesn't just educate—it revolutionizes.
+                From strategic application to cinematic expression.<br>
+                I help visionaries bridge the gap between<br>
+                imagination and reality.
             </p>
-            <a href="mailto:ssamreshan@gmail.com" class="cta-button">Let's build something great. Together.</a>
+            <a href="mailto:ssamreshan@gmail.com" class="cta-button">Let's create together.</a>
         </div>
     </section>
 
-    <script src="./script.js"></script>
+
 </body>
 </html>

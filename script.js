@@ -103,7 +103,7 @@ window.addEventListener('scroll', requestTick);
 // Intersection Observer for project animations
 const observerOptions = {
     threshold: 0.2,
-    rootMargin: '0px 0px -100px 0px'
+    rootMargin: '0px 0px -50px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -116,6 +116,26 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.project').forEach(project => {
     observer.observe(project);
+});
+
+// Case Study Entrance Animations
+const caseStudyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const index = Array.from(entry.target.parentNode.children).indexOf(entry.target);
+            // Even index (0, 2...) = Left, Odd index (1, 3...) = Right
+            if (index % 2 === 0) {
+                entry.target.classList.add('enter-left');
+            } else {
+                entry.target.classList.add('enter-right');
+            }
+            caseStudyObserver.unobserve(entry.target); // Play once
+        }
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.case-study-card').forEach(card => {
+    caseStudyObserver.observe(card);
 });
 
 // Smooth scroll for navigation links
@@ -162,12 +182,54 @@ function handleScroll() {
 
 window.addEventListener('scroll', handleScroll, { passive: true });
 
-// Initialize
-document.addEventListener('DOMContentLoaded', () => {
-    // Preload animations
-    document.body.classList.add('loaded');
-    
-    // Set initial cursor position
-    cursor.style.left = window.innerWidth / 2 + 'px';
-    cursor.style.top = window.innerHeight / 2 + 'px';
+
+// Modal Logic for Case Studies
+const modal = document.getElementById('pdf-modal');
+const closeBtn = document.querySelector('.close-modal');
+const iframe = document.getElementById('pdf-frame');
+const activeCards = document.querySelectorAll('.case-study-card.active-card');
+
+function openModal(url) {
+    if (url && modal && iframe) {
+        iframe.src = url;
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+    }
+}
+
+function closeModal() {
+    if (modal && iframe) {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        iframe.src = '';
+        document.body.style.overflow = '';
+    }
+}
+
+activeCards.forEach(card => {
+    card.addEventListener('click', () => {
+        const url = card.getAttribute('data-url');
+        openModal(url);
+    });
+});
+
+if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
+}
+
+// Close outside click
+if (modal) {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+}
+
+// Close on ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+    }
 });
